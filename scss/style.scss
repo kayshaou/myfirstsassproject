@@ -1,0 +1,134 @@
+@import "common";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem; /* based on the default root tag which is HTML if HTML is defined as 16px this setting means 16px times 1 */
+  line-height: 1.6;
+  background-color: white;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem;
+
+  & .logo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2rem;
+  }
+  & a {
+    text-decoration: none;
+    padding: 0.3rem;
+    @include set-font-color($dark-color);
+  }
+  & a > i {
+    list-style: none;
+    font-size: 1.5rem;
+  }
+
+  & ul {
+    display: flex;
+    list-style: none;
+    z-index: 9;
+    li {
+      list-style: none;
+      flex-direction: column;
+      padding: 0.3rem;
+      // margin-left: 0.4rem;
+    }
+    a {
+      text-decoration: none;
+      // @include set-font-color($dark-color);
+    }
+    a > i {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: 0fr 5fr;
+
+  &.toggled {
+    grid-template-columns: 1fr 4fr;
+  }
+  &.toggled .container {
+  }
+  &.toggled .container .dark-overlay {
+    z-index: 9;
+    display: block;
+  }
+
+  &.toggled .hidden-menu {
+    display: flex;
+    margin-left: 0rem;
+  }
+}
+
+.main {
+  height: 90vh;
+  background: transparent url("../img/homebg.jpg") no-repeat center/cover;
+  top: 0;
+  left: 0;
+}
+
+.hidden-menu {
+  // display: none;
+  flex-direction: column;
+  margin-left: -20rem;
+  z-index: 10;
+  transition: margin-left 0.25s ease;
+
+  .search_bar {
+    // width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin: 0.8rem 0;
+    & > a {
+      text-decoration: none;
+      color: $dark-color;
+    }
+    & > a > i {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+    }
+  }
+  ul {
+    list-style: none;
+  }
+
+  li {
+    padding: 0.5rem 0;
+    border-bottom: $less-dark-color 1px dotted;
+    transition: background-color 0.45s linear;
+    &:hover {
+      background-color: $red-hot-color;
+      color: $light-color;
+    }
+    &.menu a {
+      list-style: none;
+      padding: 0.3rem 0.6rem;
+      text-decoration: none;
+      color: $dark-color;
+      &:hover {
+        color: $light-color;
+      }
+    }
+  }
+}
+
+@import "mobile";

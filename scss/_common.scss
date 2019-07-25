@@ -1,0 +1,78 @@
+$dark-color: rgb(59, 52, 52);
+$less-dark-color: rgb(192, 187, 187);
+$light-color: #fbfbfb;
+$border-color: rgb(111, 114, 111);
+$base-color: rgb(14, 218, 150);
+$red-hot-color: #b12929;
+
+@function determine-font-color($bgcolor) {
+  @if (lightness($bgcolor) > 60) {
+    @return $dark-color;
+  } @else {
+    @return $light-color;
+  }
+}
+
+@mixin set-font-color($bgcolor) {
+  color: determine-font-color($bgcolor);
+}
+
+.text {
+  &-base {
+    color: $base-color;
+  }
+  &-dark {
+    color: $dark-color;
+  }
+  &-light {
+    color: $light-color;
+  }
+}
+
+.bg {
+  text-decoration: none;
+  &-dark {
+    background-color: $dark-color;
+    @include set-font-color($dark-color);
+  }
+  &-light {
+    background-color: $light-color;
+    @include set-font-color($light-color);
+  }
+  &-base {
+    background-color: $base-color;
+    @include set-font-color($base-color);
+  }
+  &-redhot {
+    background-color: $red-hot-color;
+    @include set-font-color($red-hot-color);
+  }
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  border-style: none none solid none;
+  border-width: 0 0 1px 0;
+  font: inherit;
+  font-size: 0.8rem;
+  background: transparent;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.dark-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 20;
+  display: none;
+}

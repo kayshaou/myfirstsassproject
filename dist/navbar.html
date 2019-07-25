@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
+    <!-- font awesome imports -->
+    <script src="https://kit.fontawesome.com/392bfe1740.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.min.css" />
+    <!-- font awesome -->
+    <title>My First Sass Project</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- hidden menu -->
+      <div class="hidden-menu hide-sm bg-light">
+        <div class="search_bar">
+          <input type="text" />
+          <a href="">
+            <i class="fas fa-search"></i>
+          </a>
+          <a href="" id="closeHiddenMenu">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+        <ul class="">
+          <li class="menu">
+            <a href=""><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="menu">
+            <a href=""><i class="fas fa-adjust"></i> Products</a>
+          </li>
+          <li class="menu">
+            <a href=""><i class="fas fa-ad"></i> About</a>
+          </li>
+          <li class="menu">
+            <a href=""><i class="fas fa-ad"></i> Contact</a>
+          </li>
+          <li class="menu">
+            <a href=""><i class="fas fa-ad"></i> Term & co.</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <!-- use flex -->
+        <nav class="navbar bg-redhot">
+          <!-- flex1 side menu -->
+          <a href="#!" id="barId">
+            <i class="fas fa-bars"></i>
+          </a>
+          <!-- flex 2 logo in the middle -->
+          <a href="" class="logo">
+            <i class="fas fa-user-secret"></i>
+            <!-- hide text only show icon when small screen -->
+          </a>
+
+          <!-- flex 3-->
+          <ul>
+            <!-- login/register -->
+            <li>
+              <a href="register.html"
+                ><i class="fas fa-user-alt"></i
+                ><span class="hide-sm"> Login/Register</span></a
+              >
+            </li>
+            <!-- login/register -->
+            <li>
+              <a href="cart.html"
+                ><i class="fas fa-shopping-basket"></i
+                ><span class="hide-sm">Cart</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="main">
+          <div class="dark-overlay"></div>
+          this is overaly text goese here
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $("#barId").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+      $(".hidden-menu").toggleClass("toggled");
+    });
+    $("#closeHiddenMenu").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").removeClass("toggled");
+      $(".hidden-menu").removeClass("toggled");
+    });
+  </script>
+</html>
