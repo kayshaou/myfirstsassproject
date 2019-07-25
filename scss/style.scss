@@ -38,7 +38,7 @@ body {
   & ul {
     display: flex;
     list-style: none;
-    z-index: 9;
+    z-index: 11;
     li {
       list-style: none;
       flex-direction: column;
@@ -65,7 +65,7 @@ body {
   &.toggled .container {
   }
   &.toggled .container .dark-overlay {
-    z-index: 9;
+    z-index: 23;
     display: block;
   }
 
@@ -76,7 +76,7 @@ body {
 }
 
 .main {
-  height: 90vh;
+  height: 50vh;
   background: transparent url("../img/homebg.jpg") no-repeat center/cover;
   top: 0;
   left: 0;
@@ -86,7 +86,7 @@ body {
   // display: none;
   flex-direction: column;
   margin-left: -20rem;
-  z-index: 10;
+  z-index: 25;
   transition: margin-left 0.25s ease;
 
   .search_bar {
@@ -127,6 +127,97 @@ body {
       &:hover {
         color: $light-color;
       }
+    }
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.secMainWrapper {
+  width: 100vmax;
+  // left: 0;
+}
+
+.footerWrapper {
+  height: 30vh;
+}
+
+.secMain {
+  // padding: 0.8rem;
+  margin-top: 1rem;
+  position: relative;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex: column;
+
+  .tabbedmenu {
+    z-index: 5;
+    margin-top: -3rem;
+    width: 80%;
+    // padding: 1rem;
+    border: #e2d8d8 1px solid; // display: grid;
+    border-style: none solid none solid;
+
+    ul {
+      // padding: 0.5rem;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      text-transform: capitalize;
+      list-style: none;
+      grid-gap: 0;
+      li {
+        text-align: center;
+        border-style: none solid none none;
+        border-width: 1px;
+        border-color: rgb(151, 160, 151);
+        background-color: $dark-color;
+        transition: all 0.25s ease;
+        cursor: pointer;
+
+        &:last-child {
+          border-style: none none none none;
+        }
+        &:hover {
+          background-color: #efefef;
+        }
+        & a:hover {
+          color: determine-font-color($light-color);
+        }
+
+        &.active {
+          border-style: none solid none none;
+          background-color: #efefef;
+          color: determine-font-color(#efefef);
+        }
+        &.active:last-child {
+          border-style: none none none none;
+        }
+        &.active a {
+          text-decoration: none;
+          background-color: $light-color;
+          color: determine-font-color($light-color);
+        }
+        a {
+          display: block;
+          padding: 0.5rem;
+          color: determine-font-color($dark-color);
+        }
+      }
+    }
+  }
+
+  .mainpanel {
+    top: 0;
+    padding: 0.8rem;
+    min-height: 30vh;
+    & > div {
+      display: none;
+    }
+    & > div.active {
+      display: inline-block;
     }
   }
 }

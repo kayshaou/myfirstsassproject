@@ -1,5 +1,6 @@
 $dark-color: rgb(59, 52, 52);
-$less-dark-color: rgb(192, 187, 187);
+$less-dark-color: #867f7f;
+// rgb(192, 187, 187);
 $light-color: #fbfbfb;
 $border-color: rgb(111, 114, 111);
 $base-color: rgb(14, 218, 150);
@@ -31,6 +32,10 @@ $red-hot-color: #b12929;
 
 .bg {
   text-decoration: none;
+  &-lessdark {
+    background-color: $less-dark-color;
+    @include set-font-color($less-dark-color);
+  }
   &-dark {
     background-color: $dark-color;
     @include set-font-color($dark-color);
@@ -73,6 +78,6 @@ a {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 20;
+
   display: none;
 }
